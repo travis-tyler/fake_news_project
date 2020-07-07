@@ -22,13 +22,13 @@ information that were given in the news articles, we will be using multiple sour
 Kaggle - https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset
 
 
-## Tools Used for the Project:
-Machine Learning Model:  Scikit-Learn, Tensorflow
-Back end database: SQL Database,
-Front end: HTML, CSS, JavaScript
-Connecting front end and back end: Python
-Charts: JavaScript Libraries ( Plotly)
-Deploying Application: Heroku & GitHub Pages
+### Tools Used for the Project:<br />
+Machine Learning Model:  Skikit-Learn, Tensorflow />
+Back end database:  SQL Database <br />
+Front end:  HTML, CSS, JavaScript <br />
+Connecting front end and back end:  Python <br />
+Charts:  JavaScript Libraries ( Plotly)<br />
+Deploying Application:  Heroku & GitHub Pages
 
 
 ## Team Members
