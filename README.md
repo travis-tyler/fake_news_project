@@ -5,7 +5,7 @@ An analysis of fake news articles
 # Fake News Tracker / Detection
 
 ## Project Overview
-Our topic is to analysis of fake news articles which recently has become a tremendous attiontion in 
+Our topic is to analysis of fake news articles which recently has become a tremendous attention in 
 the news media outlets.  We will be comparing websites against lists of labeled fake news 
 sources using Machine Learning approach.  For our project, we will also use Natural Language
 Processing to detect fake news directly, based on the text content in the news articles from different
@@ -23,11 +23,11 @@ Kaggle - https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset
 
 
 ### Tools Used for the Project:<br />
-Machine Learning Model:  Skikit-Learn, Tensorflow />
+Machine Learning Model:  Skikit-Learn, Tensorflow, Keras <br />
 Back end database:  SQL Database <br />
 Front end:  HTML, CSS, JavaScript <br />
 Connecting front end and back end:  Python <br />
-Charts:  JavaScript Libraries ( Plotly)<br />
+Charts:  JavaScript Libraries (Plotly)<br />
 Deploying Application:  Heroku & GitHub Pages
 
 
