@@ -1,0 +1,1 @@
+web: gunicorn 06_Flask.app:app
