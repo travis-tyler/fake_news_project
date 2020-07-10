@@ -1,1 +1,1 @@
-web: gunicorn fake_news_project:app
+web: gunicorn fake_news_project:app.py
