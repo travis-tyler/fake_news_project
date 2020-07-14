@@ -1,11 +1,8 @@
 from flask import Flask, request, render_template
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.svm import SVC
 import joblib
 
 # Load model pipeline from disk
 loaded_pipeline = joblib.load('../05_Models/fake_title_SVM_pipeline.sav')
-loaded_pipeline
 
 app = Flask(__name__)
 
@@ -33,11 +30,11 @@ def submit():
             template_data['percent'] = round(loaded_pipeline.predict_proba([text])[0][0] * 100, 2)
             template_data['prediction_color'] = 'red'
 
-        if template_data['percent'] <= 50:
+        if template_data['percent'] < 60:
             template_data['percent_color'] = 'red'
-        elif template_data['percent'] < 60:
+        elif template_data['percent'] < 70:
             template_data['percent_color'] = 'orange'
-        elif template_data['percent'] < 75:
+        elif template_data['percent'] < 80:
             template_data['percent_color'] = 'yellow'
         elif template_data['percent'] <= 90:
             template_data['percent_color'] = 'green'         
