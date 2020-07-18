@@ -1,87 +1,105 @@
+/* Style the body */
 body {
-  background: rgb(50, 117, 168);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
 }
 
-#bio-image {
-  float: right;
-}
-
-.my-nav{
-background-color: rgb(57, 106, 177);
-}
-.my-nav .nav-link{
-color: rgb(255, 255, 255);
-
-.topnav a.active {
-  float: right;
-  display: block;
-  color: black;
+/* Header/logo Title */
+.header {
+  padding: 80px;
   text-align: center;
-  padding:  14px 16px;
-  text-decoration:  none;
-  font-size: 17px;
-}
+  background: #1abc9c;
+  color: white;
 }
 
-.my-nav .nav-link:hover{
-color: darkturquoise;
+/* Increase the font size of the heading */
+.header h1 {
+  font-size: 40px;
+}
+/* Sticky navbar - toggles between relative and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed). The sticky value is not supported in IE or Edge 15 and earlier versions. However, for these versions the navbar will inherit default position */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+}
+/* Style the navigation bar links */
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+/* Right-aligned link */
+.navbar a.right {
+  float: right;
 }
 
-.container {
-background-color: rgb(253, 253, 253);
-text-align: center;
-margin: auto;
+/* Change color on hover */
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
 }
 
-#latitude_box {
-background-color: darkturquoise;
-font-size: large;
-color: rgb(252, 250, 250);
+/* Active/current link */
+.navbar a.active {
+  background-color: #666;
+  color: white;
 }
 
+/* Column container */
+.row {  
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
 }
 
-/* p {
-display: inline;
-} */
-
-h1 {
-color:  blue;
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+  -ms-flex: 30%; /* IE10 */
+  flex: 30%;
+  background-color: #f1f1f1;
+  padding: 20px;
 }
 
-h3 {
-color: darkturquoise;
+/* Main column */
+.main {   
+  -ms-flex: 70%; /* IE10 */
+  flex: 70%;
+  background-color: white;
+  padding: 20px;
 }
 
-#colored_font {
-color: darkturquoise;
+/* Fake image, just for this example */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
 }
 
-footer.footer{
-	background-color:(57, 106, 177);
- 	color: #FFFFFF;
-	border-radius: .3rem;
-	text-align: center;
-	padding: 5px 5px;
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
 }
 
-/* Here we define some styles that will ONLY be applied at screen sizes below 480 pixels */
-@media (max-width: 480px) {
-.my-nav {
-  padding: 10px;
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .row {   
+    flex-direction: column;
+  }
 }
 
-.container {
-  margin-right: 30px;
-  margin-left: 30px;
-  align-content: center;
-}
-
-.my-nav{
-  visibility: hidden;
-}
-
-.my-nav .nav-link {
-  visibility: visible;
-}
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
 }
