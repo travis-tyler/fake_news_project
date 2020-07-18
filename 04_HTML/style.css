@@ -11,7 +11,7 @@ background-color: rgb(57, 106, 177);
 }
 .my-nav .nav-link{
 color: rgb(255, 255, 255);
-
+}
 .topnav a.active {
   float: right;
   display: block;
@@ -21,8 +21,6 @@ color: rgb(255, 255, 255);
   text-decoration:  none;
   font-size: 17px;
 }
-}
-
 .my-nav .nav-link:hover{
 color: darkturquoise;
 }
@@ -39,7 +37,6 @@ font-size: large;
 color: rgb(252, 250, 250);
 }
 
-}
 
 /* p {
 display: inline;
