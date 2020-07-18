@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Fake News Detection</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    /* Style the body */
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+    }
+    
+    /* Header/logo Title */
+    .header {
+      padding: 80px;
+      text-align: center;
+      background: #1abc9c;
+      color: white;
+    }
+    
+    /* Increase the font size of the heading */
+    .header h1 {
+      font-size: 40px;
+    }
+    
+    /* Sticky navbar - toggles between relative and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed). The sticky value is not supported in IE or Edge 15 and earlier versions. However, for these versions the navbar will inherit default position */
+    .navbar {
+      overflow: hidden;
+      background-color: #333;
+      position: sticky;
+      position: -webkit-sticky;
+      top: 0;
+    }
+    
+    /* Style the navigation bar links */
+    .navbar a {
+      float: left;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+    
+    
+    /* Right-aligned link */
+    .navbar a.right {
+      float: right;
+    }
+    
+    /* Change color on hover */
+    .navbar a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+    
+    /* Active/current link */
+    .navbar a.active {
+      background-color: #666;
+      color: white;
+    }
+    
+    /* Column container */
+    .row {  
+      display: -ms-flexbox; /* IE10 */
+      display: flex;
+      -ms-flex-wrap: wrap; /* IE10 */
+      flex-wrap: wrap;
+    }
+    
+    /* Create two unequal columns that sits next to each other */
+    /* Sidebar/left column */
+    .side {
+      -ms-flex: 30%; /* IE10 */
+      flex: 30%;
+      background-color: #f1f1f1;
+      padding: 20px;
+    }
+    
+    /* Main column */
+    .main {   
+      -ms-flex: 70%; /* IE10 */
+      flex: 70%;
+      background-color: white;
+      padding: 20px;
+    }
+    
+    /* Fake image, just for this example */
+    .fakeimg {
+      background-color: #aaa;
+      width: 100%;
+      padding: 20px;
+    }
+    
+    /* Footer */
+    .footer {
+      padding: 20px;
+      text-align: center;
+      background: #ddd;
+    }
+    
+    /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 700px) {
+      .row {   
+        flex-direction: column;
+      }
+    }
+    
+    /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+    @media screen and (max-width: 400px) {
+      .navbar a {
+        float: none;
+        width: 100%;
+      }
+    }
+    </style>
+    </head>
+    <body>
+    
+    <div class="header">
+      <h1>Word visualization</h1>
+      <p>What words affect the model?</p>
+    </div>
+    
+    <div class="navbar">
+      <a href="{{ url_for('home') }}">Home</a>
+      <a href="{{ url_for('prediction') }}">Headline prediction</a>
+      <a href="{{ url_for('prediction') }}">Body prediction</a>
+      <a href="{{ url_for('visualization') }}" class="active">Word visualization</a>
+      <a href="{{ url_for('analysis') }}">Analysis</a>
+    </div>
+
+  <!-- Content Section -->
+​
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <div id="bubble"></div>
+      <div class='tableauPlaceholder' id='viz1595092115757' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;to&#47;topusedwords2&#47;3Graphs&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='topusedwords2&#47;3Graphs' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;to&#47;topusedwords2&#47;3Graphs&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1595092115757');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='977px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+  </div>
+  </div>
+
+  <div class="footer">
+    <h4>UT Data Analysis and Visualization Boot Camp</h4>
+    <small> Team Members:  Travis, Daniel, Rolando, Usman, Blanca</small>
+  </div>
+ 
+   
+​
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+​
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+​
+    </body>
+</html>

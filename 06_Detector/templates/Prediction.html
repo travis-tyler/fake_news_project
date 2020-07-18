@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Fake News Detection</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    /* Style the body */
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+    }
+    
+    /* Header/logo Title */
+    .header {
+      padding: 80px;
+      text-align: center;
+      background: #1abc9c;
+      color: white;
+    }
+    
+    /* Increase the font size of the heading */
+    .header h1 {
+      font-size: 40px;
+    }
+    
+    /* Sticky navbar - toggles between relative and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed). The sticky value is not supported in IE or Edge 15 and earlier versions. However, for these versions the navbar will inherit default position */
+    .navbar {
+      overflow: hidden;
+      background-color: #333;
+      position: sticky;
+      position: -webkit-sticky;
+      top: 0;
+    }
+    
+    /* Style the navigation bar links */
+    .navbar a {
+      float: left;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+    
+    
+    /* Right-aligned link */
+    .navbar a.right {
+      float: right;
+    }
+    
+    /* Change color on hover */
+    .navbar a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+    
+    /* Active/current link */
+    .navbar a.active {
+      background-color: #666;
+      color: white;
+    }
+    
+    /* Column container */
+    .row {  
+      display: -ms-flexbox; /* IE10 */
+      display: flex;
+      -ms-flex-wrap: wrap; /* IE10 */
+      flex-wrap: wrap;
+    }
+    
+    /* Create two unequal columns that sits next to each other */
+    /* Sidebar/left column */
+    .side {
+      -ms-flex: 30%; /* IE10 */
+      flex: 30%;
+      background-color: #f1f1f1;
+      padding: 20px;
+    }
+    
+    /* Main column */
+    .main {   
+      -ms-flex: 70%; /* IE10 */
+      flex: 70%;
+      background-color: white;
+      padding: 20px;
+    }
+    
+    /* Fake image, just for this example */
+    .fakeimg {
+      background-color: #aaa;
+      width: 100%;
+      padding: 20px;
+    }
+    
+    /* Footer */
+    .footer {
+      padding: 20px;
+      text-align: center;
+      background: #ddd;
+    }
+    
+    /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 700px) {
+      .row {   
+        flex-direction: column;
+      }
+    }
+    
+    /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+    @media screen and (max-width: 400px) {
+      .navbar a {
+        float: none;
+        width: 100%;
+      }
+    }
+    </style>
+    </head>
+    <body>
+    
+    <div class="header">
+      <h1>Headline prediction</h1>
+      <p>A fake headline detector app</p>
+    </div>
+    
+    <div class="navbar">
+      <a href="{{ url_for('home') }}">Home</a>
+      <a href="{{ url_for('prediction') }}" class="active">Headline prediction</a>
+      <a href="{{ url_for('predict_body') }}">Body prediction</a>
+      <a href="{{ url_for('visualization') }}">Word visualization</a>
+      <a href="{{ url_for('analysis') }}">Analysis</a>
+    </div>
+
+  <!-- Content Section -->
+
+    <div class='row'> 
+      <div class= "col-1"></div>
+      <h2>Fake headline detector</h2>
+    </div>
+    <br>
+    <div class='row'> 
+      <div class= "col-1"></div>
+      <form action="/prediction" method="POST">
+        <textarea name="text" style='width:500px; height: 100px' placeholder="Copy/paste a headline into this field"></textarea>
+        <input type="submit" value="Predict!">
+      </form>
+    </div>
+    <br>
+    <div class='row'> 
+      <div class= "col-1"></div>    
+      <h4 class= "col-2">Headline:</h4>
+    </div>
+    <div class='row'> 
+      <div class= "col-1"></div>   
+      <p class= "col-6">{{ headline }}</p>
+    </div>
+    <br>
+    <div class='row'> 
+      <div class= "col-1"></div>   
+      <h4 class= "col-2">Prediction 1:</h4>
+      <div class= "col-1"></div>   
+      <h4 class= "col-2">Prediction 2:</h4>
+    </div>
+    <div class='row'> 
+      <div class= "col-1"></div>   
+      <h4 class= "col-2" style="color: {{ pipeline1.prediction_color }}; text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;">{{ pipeline1.prediction }}</h4>
+      <div class= "col-1"></div>   
+      <h4 class= "col-2" style="color: {{ pipeline2.prediction_color }}; text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;">{{ pipeline2.prediction }}</h4>
+    </div>
+    <div class='row'> 
+      <div class= "col-1"></div>   
+      <h4 class= "col-2">Confidence:</h4>
+      <div class= "col-1"></div>   
+      <h4 class= "col-2">Confidence:</h4>
+    </div>
+    <div class='row'> 
+      <div class= "col-1"></div>   
+      <h4 class= "col-2" style="color: {{ pipeline1.percent_color }}; text-shadow: 0 0 2px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;">{{ pipeline1.percent }}%</h4>
+      <div class= "col-1"></div>   
+      <h4 class= "col-2" style="color: {{ pipeline2.percent_color }}; text-shadow: 0 0 2px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;">{{ pipeline2.percent }}%</h4>
+    </div>
+    <br>
+  
+    <div class="footer">
+      <h4>UT Data Analysis and Visualization Boot Camp</h4>
+      <small> Team Members:  Travis, Daniel, Rolando, Usman, Blanca</small>
+    </div>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+
+
+</body>
+
+</html>
