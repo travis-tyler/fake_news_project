@@ -143,13 +143,23 @@
 
   <div class='row'> 
     <div class= "col-3"></div>
-    <h3>Fake body copy detector</h3>
+    <h3 class="col-6">Fake body copy detector</h3>
   </div>
   <br>
   <div class='row'> 
     <div class= "col-3"></div>
-    <form action="/predict_body" method="post">
-      <textarea name="text" style='width:500px; height: 100px' placeholder="Copy/paste a body copy into this field"></textarea>
+    <p class="col-6">
+      The following two body copy classifier models are a linear support vector machine and a "passive-aggressive" classifier. They are also trained on two different datasets.
+      Model one is an SVM trained on a large 40,000+ record dataset and achieved an accuracy score of 0.982 and an F1 score of 0.980. 
+      Concerned about "overfitting," the second model was a passive-aggressive classifier trained using multiple smaller datasets to account for any error and over/under-representation in the large dataset.
+      Model 2 achieved a lower, but perhaps more realistic accuracy score of 0.940 and F1 score of 0.937. 
+    </p>
+  </div>
+  <br>
+  <div class='row'> 
+    <div class= "col-3"></div>
+    <form class ="col-6" action="/prediction" method="POST">
+      <textarea name="text" style='width:500px; height: 100px' placeholder="Copy/paste body copy into this field"></textarea>
       <input type="submit" value="Predict!">
     </form>
   </div>

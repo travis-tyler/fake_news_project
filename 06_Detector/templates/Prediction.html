@@ -143,12 +143,22 @@
 
     <div class='row'> 
       <div class= "col-3"></div>
-      <h3>Fake headline detector</h3>
+      <h3 class="col-6">Fake headline detector</h3>
     </div>
     <br>
     <div class='row'> 
       <div class= "col-3"></div>
-      <form action="/prediction" method="POST">
+      <p class="col-6">
+        The following two headline classifier models are linear support vector machines with the same parameters. They are trained, however, on two different datasets.
+        Model one is trained on a large 40,000+ record dataset and achieved an accuracy score of 0.947 and an F1 score of 0.945. 
+        The second model was trained using multiple smaller datasets to account for any error and over/under-representation in the large dataset.
+        Model 2 achieved a lower, but perhaps more realistic accuracy score of 0.868 and F1 score of 0.864.
+      </p>
+    </div>
+    <br>
+    <div class='row'> 
+      <div class= "col-3"></div>
+      <form class ="col-6" action="/prediction" method="POST">
         <textarea name="text" style='width:500px; height: 100px' placeholder="Copy/paste a headline into this field"></textarea>
         <input type="submit" value="Predict!">
       </form>

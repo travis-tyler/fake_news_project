@@ -156,7 +156,7 @@
     <div class=col-3></div>
     <p class=col-6>
       The models used in this app determine whether a news article (headline or body) is fake by using words and structure. 
-      If cannot fact check. The ML models might categorize a genuine-sounding article as factual, even if it’s full fictional information. 
+      It cannot fact check. The ML models might categorize a genuine-sounding article as factual, even if it’s full of fictional information. 
       And, as is, certain words can trick the models. “GOP,” for example, is almost exclusively found in headlines labeled “False” in one of our datasets. 
       Words and phrases like “Supreme Court” are found significantly more often in true articles, and are more likely to be labeled true.
       The presence of these heavier weighted words and phrases may skew the resulting prediction.
@@ -165,9 +165,18 @@
   <div class='row'>
     <div class=col-3></div>
     <p class=col-6>
-      The longer the article, the more accurate the model will be. For headlines, our models achieved about 85% accuracy. 
-      For body copy, which are much longer, our models achieved accuracy and F1 scores in the mid-90s. 
+      The longer the article, the more accurate the model will be. For headlines, our models achieved accuracy and F1 score in the mid-80s (for the combined dataset). 
+      For body copy, which is much longer, our models achieved accuracy and F1 scores in the mid-90s (very high-90s in the case of the 40,000+record dataset). 
       Models trained with body copy as the sole feature are, therefore, significantly more difficult to fool. 
+    </p>
+  </div>
+  <div class='row'>
+    <div class=col-3></div>
+    <p class=col-6>
+      Combining multiple datasets seems to lower the score, but, in theory, should improve the models' ability to recognize and identify "fake news" in the real world.
+      Those heavier-weighted features/words have less impact on the final classification when using models trained on more diverse data.
+      A headline featuring "GOP," for example, might still be incorrectly classified as "False," but with a lower probability score. 
+      Try this out using the "headline prediction" app.
     </p>
   </div>
   <div class='row'>
@@ -209,8 +218,8 @@
     <div class=col-3></div>
     <p class=col-6>
       In the future, we will research John Snow and other libraries to build a Spark ML pipeline, build an
-      application which will read a database, and get the NLP prediction and classification. We will also
-      build a text scraper which can scrape news articles and predict if it is true or false, using only user-inputed URL/link.
+      application that will read a database, and get the NLP prediction and classification. We will also
+      build a text scraper that can scrape news articles and predict if it is true or false, using only user-inputted URL/link.
     </p>
   </div>
 
