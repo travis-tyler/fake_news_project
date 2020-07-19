@@ -1,0 +1,112 @@
+Best HEADLINE model for 6335-record dataset = 
+-SVC(C=1.0, kernel='linear', gamma=0.0001, probability=True)
+81.2%
+-SVC(C=50, kernel='rbf', gamma=0.005, probability=True)
+80.8%
+-MultinomialNB(alpha=0.1)
+78.7%
+-PassiveAggressiveClassifier()
+77%
+
+----
+
+Best BODY model for 6335-record dataset = 
+-PassiveAggressiveClassifier()
+94%
+-SVC(C=1.0, kernel='linear', gamma=0.0001, probability=True)
+93.1%
+-SVC(C=50, kernel='rbf', gamma=0.005, probability=True)
+91%-92%
+-SVC(C=50, kernel='sigmoid', gamma=0.005, probability=True)
+89%
+-MultinomialNB(alpha=0.1)
+88.8%
+
+----
+
+Best HEADLINE model for 44898-record dataset = 
+-SVC(C=1.0, kernel='linear', gamma=0.0001, probability=True)
+accuracy:   0.947
+f1 score:   0.945
+-SVC(C=50, kernel='rbf', gamma=0.005, probability=True)
+accuracy:   0.945
+f1 score:   0.943
+-PassiveAggressiveClassifier()
+accuracy:   0.938
+f1 score:   0.935
+-MultinomialNB(alpha=0.3)
+accuracy:   0.939
+f1 score:   0.935
+-KNeighborsClassifier(n_neighbors=13)
+accuracy:   0.900
+f1 score:   0.899
+
+----
+
+Best BODY model for 44898-record dataset = 
+-SVC(C=1.0, kernel='linear', gamma=0.0001, probability=True)
+accuracy:   0.992
+f1 score:   0.992
+-PassiveAggressiveClassifier()
+accuracy:   0.992
+f1 score:   0.992
+-SVC(C=50, kernel='rbf', gamma=0.005, probability=True)
+accuracy:   0.991
+f1 score:   0.990
+-MultinomialNB(alpha=0.1)
+accuracy:   0.939
+f1 score:   0.936
+
+----
+
+Best HEADLINE model for URL dataset = 
+-PassiveAggressiveClassifier()
+accuracy:   0.856
+f1 score:   0.835
+-MultinomialNB(alpha=0.1)
+accuracy:   0.848
+f1 score:   0.825
+-SVC(C=1.0, kernel='linear', gamma=0.0001, probability=True)
+accuracy:   0.843
+f1 score:   0.823
+-SVC(C=50, kernel='rbf', gamma=0.005, probability=True)
+accuracy:   0.830
+f1 score:   0.812
+
+----
+
+Best BODY model for URL dataset = 
+-PassiveAggressiveClassifier()
+accuracy:   0.986
+f1 score:   0.985
+-SVC(C=1.0, kernel='linear', gamma=0.0001, probability=True)
+accuracy:   0.982
+f1 score:   0.980
+-SVC(C=50, kernel='rbf', gamma=0.005, probability=True)
+accuracy:   0.976
+f1 score:   0.974
+-MultinomialNB(alpha=0.1)
+accuracy:   0.942
+f1 score:   0.937
+-KNeighborsClassifier(n_neighbors=7)
+accuracy:   0.915
+f1 score:   0.908
+
+----
+
+Best HEADLINE model for COMBINED dataset = 
+SVC(C=1.0, kernel='linear', gamma=0.0001, probability=True)
+accuracy:   0.868
+f1 score:   0.864
+SVC(C=1.0, kernel='rbf', gamma=0.0001, probability=True)
+accuracy:   0.868
+f1 score:   0.863
+MultinomialNB(alpha=0.8)
+accuracy:   0.849
+f1 score:   0.839
+PassiveAggressiveClassifier()
+accuracy:   0.834
+f1 score:   0.830
+KNeighborsClassifier(n_neighbors=15)
+accuracy:   0.796
+f1 score:   0.806

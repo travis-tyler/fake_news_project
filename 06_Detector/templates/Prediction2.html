@@ -156,33 +156,32 @@
   <br>
   <div class='row'> 
     <div class= "col-3"></div>   
-    <h4>Prediction 1:</h4>
-    <div class= "col-2"></div>   
+    <h4 class= "col-2">Prediction 1:</h4>
+    <div class= "col-1"></div>   
     <h4 class= "col-2">Prediction 2:</h4>
   </div>
   <div class='row'> 
-    <div class="col-3"></div>   
-    <h4 style="color: {{ pipeline1.prediction_color }}; text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;">{{ pipeline1.prediction }}</h4>
-    <div class ="col-3"></div>
-    <h4 class="col-2" style="color: {{ pipeline2.prediction_color }}; text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;">{{ pipeline2.prediction }}</h4>
-  </div>
-  <br>
-  <div class='row'> 
     <div class= "col-3"></div>   
-    <h4>Confidence:</h4>
+    <h4 class= "col-2" style="color: {{ pipeline1.prediction_color }}; text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;">{{ pipeline1.prediction }}</h4>
+    <div class= "col-1"></div>   
+    <h4 class= "col-2" style="color: {{ pipeline2.prediction_color }}; text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;">{{ pipeline2.prediction }}</h4>
   </div>
   <div class='row'> 
     <div class= "col-3"></div>   
-    <h4 style="color: {{ pipeline1.percent_color }}; text-shadow: 0 0 2px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;">{{ pipeline1.percent }}%</h4>
+    <h4 class= "col-2">Confidence:</h4>
+  </div>
+  <div class='row'> 
+    <div class= "col-3"></div>   
+    <h4 class= "col-2" style="color: {{ pipeline1.percent_color }}; text-shadow: 0 0 2px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;">{{ pipeline1.percent }}%</h4>
   </div>
   <br>
   <div class='row'> 
     <div class= "col-3"></div>    
-    <h4>Body copy:</h4>
+    <h4 class= "col-2">Body copy:</h4>
   </div>
   <div class='row'> 
     <div class= "col-3"></div>   
-    <p>{{ headline }}</p>
+    <p class= "col-6">{{ headline }}</p>
   </div>
   
     <div class="footer">
