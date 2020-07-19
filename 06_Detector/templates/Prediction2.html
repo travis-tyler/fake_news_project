@@ -156,11 +156,15 @@
   <br>
   <div class='row'> 
     <div class= "col-3"></div>   
-    <h4>Prediction:</h4>
+    <h4>Prediction 1:</h4>
+    <div class= "col-2"></div>   
+    <h4 class= "col-2">Prediction 2:</h4>
   </div>
   <div class='row'> 
-    <div class= "col-3"></div>   
-    <h4 style="color: {{ prediction_color }}; text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;">{{ prediction }}</h4>
+    <div class="col-3"></div>   
+    <h4 style="color: {{ pipeline1.prediction_color }}; text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;">{{ pipeline1.prediction }}</h4>
+    <div class ="col-3"></div>
+    <h4 class="col-2" style="color: {{ pipeline2.prediction_color }}; text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;">{{ pipeline2.prediction }}</h4>
   </div>
   <br>
   <div class='row'> 
@@ -169,7 +173,7 @@
   </div>
   <div class='row'> 
     <div class= "col-3"></div>   
-    <h4 style="color: {{ percent_color }}; text-shadow: 0 0 2px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;">{{ percent }}%</h4>
+    <h4 style="color: {{ pipeline1.percent_color }}; text-shadow: 0 0 2px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;">{{ pipeline1.percent }}%</h4>
   </div>
   <br>
   <div class='row'> 

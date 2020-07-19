@@ -155,10 +155,10 @@
   <div class='row'>
     <div class=col-3></div>
     <p class=col-6>
-      The models used in this app determine whether a news article (headline or body) by words and structure. 
+      The models used in this app determine whether a news article (headline or body) is fake by using words and structure. 
       If cannot fact check. The ML models might categorize a genuine-sounding article as factual, even if it’s full fictional information. 
-      And, as is, certain words can trick the models. “GOP,” for example, is almost exclusively found in headlines labeled “False” in our datasets. 
-      Words and phrases like “Supreme Court” are found significantly more often in true articles. 
+      And, as is, certain words can trick the models. “GOP,” for example, is almost exclusively found in headlines labeled “False” in one of our datasets. 
+      Words and phrases like “Supreme Court” are found significantly more often in true articles, and are more likely to be labeled true.
       The presence of these heavier weighted words and phrases may skew the resulting prediction.
     </p>
   </div>
@@ -167,7 +167,7 @@
     <p class=col-6>
       The longer the article, the more accurate the model will be. For headlines, our models achieved about 85% accuracy. 
       For body copy, which are much longer, our models achieved accuracy and F1 scores in the mid-90s. 
-      Models trained with body copy as the sole feature is, therefore, significantly more difficult to fool. 
+      Models trained with body copy as the sole feature are, therefore, significantly more difficult to fool. 
     </p>
   </div>
   <div class='row'>
@@ -178,10 +178,10 @@
     <div class=col-3></div>
     <p class=col-6>
       We used Scikit-Learn‘s TfidfVectorizer to extract tf–idf features for the headline and body features. 
-      After splitting the data into training and testing segments, we fit it to SVM, PAS, KNN, NB models. 
-      Regardless of dataset or feature, sklearn’s Support vector machine and PassiveAggressiveClassifier() models performed the best using the resulting tf–idf data. 
+      After splitting the data into training and testing segments, we fit it to support vector machines, "PassiveAggressive," k-nearest neighbors, and Naive Bayes classifier models. 
+      Regardless of dataset or feature, sklearn’s support vector machine and PassiveAggressiveClassifier models performed the best using the resulting tf–idf data. 
       Using grid search to hypertune our SVM model, we determined the best parameters to use. 
-      We found linear to be the most effective kernel, followed closely by RBF.
+      For SVM, we found linear to be the most effective kernel, followed closely by RBF.
     </p>
   </div>
   <div class='row'>
@@ -201,8 +201,16 @@
   <div class='row'>
     <div class=col-3></div>
     <p class=col-6>
-      For better real-world performance, we should look into sentiment analysis and other NLP techniques. 
+      For better real-world performance, we should look into sentiment analysis and other natural language processing techniques. 
       These might help detect bias and other factors that the current models are missing. 
+    </p>
+  </div>
+  <div class='row'>
+    <div class=col-3></div>
+    <p class=col-6>
+      In the future, we will research John Snow and other libraries to build a Spark ML pipeline, build an
+      application which will read a database, and get the NLP prediction and classification. We will also
+      build a text scraper which can scrape news articles and predict if it is true or false, using only user-inputed URL/link.
     </p>
   </div>
 
