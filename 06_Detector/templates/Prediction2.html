@@ -142,12 +142,12 @@
   <!-- Content Section -->
 
   <div class='row'> 
-    <div class= "col-1"></div>
-    <h2>Fake body copy detector</h2>
+    <div class= "col-3"></div>
+    <h3>Fake body copy detector</h3>
   </div>
   <br>
   <div class='row'> 
-    <div class= "col-1"></div>
+    <div class= "col-3"></div>
     <form action="/predict_body" method="post">
       <textarea name="text" style='width:500px; height: 100px' placeholder="Copy/paste a body copy into this field"></textarea>
       <input type="submit" value="Predict!">
@@ -155,30 +155,30 @@
   </div>
   <br>
   <div class='row'> 
-    <div class= "col-1"></div>    
-    <h4>Body copy:</h4>
-  </div>
-  <div class='row'> 
-    <div class= "col-1"></div>   
-    <p>{{ headline }}</p>
-  </div>
-  <br>
-  <div class='row'> 
-    <div class= "col-1"></div>   
+    <div class= "col-3"></div>   
     <h4>Prediction:</h4>
   </div>
   <div class='row'> 
-    <div class= "col-1"></div>   
+    <div class= "col-3"></div>   
     <h4 style="color: {{ prediction_color }}; text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;">{{ prediction }}</h4>
   </div>
   <br>
   <div class='row'> 
-    <div class= "col-1"></div>   
+    <div class= "col-3"></div>   
     <h4>Confidence:</h4>
   </div>
   <div class='row'> 
-    <div class= "col-1"></div>   
+    <div class= "col-3"></div>   
     <h4 style="color: {{ percent_color }}; text-shadow: 0 0 2px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;">{{ percent }}%</h4>
+  </div>
+  <br>
+  <div class='row'> 
+    <div class= "col-3"></div>    
+    <h4>Body copy:</h4>
+  </div>
+  <div class='row'> 
+    <div class= "col-3"></div>   
+    <p>{{ headline }}</p>
   </div>
   
     <div class="footer">

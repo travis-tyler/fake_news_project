@@ -142,12 +142,12 @@
   <!-- Content Section -->
 
     <div class='row'> 
-      <div class= "col-1"></div>
-      <h2>Fake headline detector</h2>
+      <div class= "col-3"></div>
+      <h3>Fake headline detector</h3>
     </div>
     <br>
     <div class='row'> 
-      <div class= "col-1"></div>
+      <div class= "col-3"></div>
       <form action="/prediction" method="POST">
         <textarea name="text" style='width:500px; height: 100px' placeholder="Copy/paste a headline into this field"></textarea>
         <input type="submit" value="Predict!">
@@ -155,34 +155,34 @@
     </div>
     <br>
     <div class='row'> 
-      <div class= "col-1"></div>    
+      <div class= "col-3"></div>    
       <h4 class= "col-2">Headline:</h4>
     </div>
     <div class='row'> 
-      <div class= "col-1"></div>   
+      <div class= "col-3"></div>   
       <p class= "col-6">{{ headline }}</p>
     </div>
     <br>
     <div class='row'> 
-      <div class= "col-1"></div>   
+      <div class= "col-3"></div>   
       <h4 class= "col-2">Prediction 1:</h4>
       <div class= "col-1"></div>   
       <h4 class= "col-2">Prediction 2:</h4>
     </div>
     <div class='row'> 
-      <div class= "col-1"></div>   
+      <div class= "col-3"></div>   
       <h4 class= "col-2" style="color: {{ pipeline1.prediction_color }}; text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;">{{ pipeline1.prediction }}</h4>
       <div class= "col-1"></div>   
       <h4 class= "col-2" style="color: {{ pipeline2.prediction_color }}; text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;">{{ pipeline2.prediction }}</h4>
     </div>
     <div class='row'> 
-      <div class= "col-1"></div>   
+      <div class= "col-3"></div>   
       <h4 class= "col-2">Confidence:</h4>
       <div class= "col-1"></div>   
       <h4 class= "col-2">Confidence:</h4>
     </div>
     <div class='row'> 
-      <div class= "col-1"></div>   
+      <div class= "col-3"></div>   
       <h4 class= "col-2" style="color: {{ pipeline1.percent_color }}; text-shadow: 0 0 2px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;">{{ pipeline1.percent }}%</h4>
       <div class= "col-1"></div>   
       <h4 class= "col-2" style="color: {{ pipeline2.percent_color }}; text-shadow: 0 0 2px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;">{{ pipeline2.percent }}%</h4>

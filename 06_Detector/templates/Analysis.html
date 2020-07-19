@@ -140,7 +140,71 @@
     </div>
 
   <!-- Content Section -->
-
+  <div class='row'>
+    <div class=col-3></div>
+    <h4 class=col-6>Question</h4>
+  </div>
+  <div class='row'>
+    <div class=col-3></div>
+    <p class=col-6>Can machine learning be used to detect fake news? How does the dataset affect the efficacy of the model/app?</p>
+  </div>
+  <div class='row'>
+    <div class=col-3></div>
+    <h4 class=col-6>Findings</h4>
+  </div>
+  <div class='row'>
+    <div class=col-3></div>
+    <p class=col-6>
+      The models used in this app determine whether a news article (headline or body) by words and structure. 
+      If cannot fact check. The ML models might categorize a genuine-sounding article as factual, even if it’s full fictional information. 
+      And, as is, certain words can trick the models. “GOP,” for example, is almost exclusively found in headlines labeled “False” in our datasets. 
+      Words and phrases like “Supreme Court” are found significantly more often in true articles. 
+      The presence of these heavier weighted words and phrases may skew the resulting prediction.
+    </p>
+  </div>
+  <div class='row'>
+    <div class=col-3></div>
+    <p class=col-6>
+      The longer the article, the more accurate the model will be. For headlines, our models achieved about 85% accuracy. 
+      For body copy, which are much longer, our models achieved accuracy and F1 scores in the mid-90s. 
+      Models trained with body copy as the sole feature is, therefore, significantly more difficult to fool. 
+    </p>
+  </div>
+  <div class='row'>
+    <div class=col-3></div>
+    <h4 class=col-6>Method</h4>
+  </div>
+  <div class='row'>
+    <div class=col-3></div>
+    <p class=col-6>
+      We used Scikit-Learn‘s TfidfVectorizer to extract tf–idf features for the headline and body features. 
+      After splitting the data into training and testing segments, we fit it to SVM, PAS, KNN, NB models. 
+      Regardless of dataset or feature, sklearn’s Support vector machine and PassiveAggressiveClassifier() models performed the best using the resulting tf–idf data. 
+      Using grid search to hypertune our SVM model, we determined the best parameters to use. 
+      We found linear to be the most effective kernel, followed closely by RBF.
+    </p>
+  </div>
+  <div class='row'>
+    <div class=col-3></div>
+    <p class=col-6>
+      We created multiple pipelines using the vectorizer and best-performing models (linear SVM and PassiveAggressiveClassifier), and saved the result to be deployed using the Flask-powered app.
+    </p>
+  </div>
+  <div class='row'>
+    <div class=col-3></div>
+    <h4 class=col-6>Conclusion</h4>
+  </div>
+  <div class='row'>
+    <div class=col-3></div>
+    <p class=col-6>ML can be used to detect fake news, but it can be easily fooled.</p>
+  </div>
+  <div class='row'>
+    <div class=col-3></div>
+    <p class=col-6>
+      For better real-world performance, we should look into sentiment analysis and other NLP techniques. 
+      These might help detect bias and other factors that the current models are missing. 
+    </p>
+  </div>
 
   <div class="footer">
     <h4>UT Data Analysis and Visualization Boot Camp</h4>
