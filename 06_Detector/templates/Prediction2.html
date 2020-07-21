@@ -143,16 +143,16 @@
 
   <div class='row'> 
     <div class= "col-3"></div>
-    <h3 class="col-6">Fake body copy detector</h3>
+    <h3 class="col-6">Fake body copy detector (a lesson in "overfitting")</h3>
   </div>
   <br>
   <div class='row'> 
     <div class= "col-3"></div>
     <p class="col-6">
       The following two body copy classifier models are a linear support vector machine and a "passive-aggressive" classifier. They are also trained on two different datasets.
-      Model one is an SVM trained on a large 40,000+ record dataset and achieved an accuracy score of 0.982 and an F1 score of 0.980. 
-      Concerned about "overfitting," the second model was a passive-aggressive classifier trained using multiple smaller datasets to account for any error and over/under-representation in the large dataset.
-      Model 2 achieved a lower, but perhaps more realistic accuracy score of 0.940 and F1 score of 0.937. 
+      Model one is an SVM trained on a large 38,000+ record dataset and achieved an accuracy score of 0.976 and an F1 score of 0.978. 
+      Concerned about "overfitting," the second model was also an SVM trained using a smaller dataset to account for any leakage, errors and over/under-representation in the large dataset.
+      Model 2 achieved a lower, but perhaps more realistic accuracy score of 0.92. 
     </p>
   </div>
   <br>
@@ -166,9 +166,9 @@
   <br>
   <div class='row'> 
     <div class= "col-3"></div>   
-    <h4 class= "col-2">Prediction 1:</h4>
+    <h4 class= "col-2">Larger-dataset prediction:</h4>
     <div class= "col-1"></div>   
-    <h4 class= "col-2">Prediction 2:</h4>
+    <h4 class= "col-2">Smaller-dataset prediction:</h4>
   </div>
   <div class='row'> 
     <div class= "col-3"></div>   
@@ -178,11 +178,15 @@
   </div>
   <div class='row'> 
     <div class= "col-3"></div>   
-    <h4 class= "col-2">Confidence:</h4>
+    <h4 class= "col-2">Confidence (%):</h4>
+    <div class= "col-1"></div>   
+    <h4 class= "col-2">Confidence (%):</h4>
   </div>
   <div class='row'> 
     <div class= "col-3"></div>   
-    <h4 class= "col-2" style="color: {{ pipeline1.percent_color }}; text-shadow: 0 0 2px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;">{{ pipeline1.percent }}%</h4>
+    <h4 class= "col-2" style="color: {{ pipeline1.percent_color }}; text-shadow: 0 0 2px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;">{{ pipeline1.percent }}</h4>
+    <div class= "col-1"></div>   
+    <h4 class= "col-2" style="color: {{ pipeline2.percent_color }}; text-shadow: 0 0 2px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;">{{ pipeline2.percent }}</h4>
   </div>
   <br>
   <div class='row'> 
@@ -193,6 +197,7 @@
     <div class= "col-3"></div>   
     <p class= "col-6">{{ headline }}</p>
   </div>
+  <br>
   
     <div class="footer">
       <h4>UT Data Analysis and Visualization Boot Camp</h4>
