@@ -54,19 +54,19 @@ def prediction():
         # First model
         template_data['pipeline1']['prediction'] = str(title_pipeline.predict([text.lower()])[0])
         if template_data['pipeline1']['prediction'] == 'True':
-            template_data['pipeline1']['percent'] = round(title_pipeline.predict_proba([text.lower()])[0][1] * 100, 2)
+            template_data['pipeline1']['percent'] = round(title_pipeline.predict_proba([text.lower()])[0][1], 4)
             template_data['pipeline1']['prediction_color'] = 'green'
         else:
-            template_data['pipeline1']['percent'] = round(title_pipeline.predict_proba([text.lower()])[0][0] * 100, 2)
+            template_data['pipeline1']['percent'] = round(title_pipeline.predict_proba([text.lower()])[0][0], 4)
             template_data['pipeline1']['prediction_color'] = 'red'
 
-        if template_data['pipeline1']['percent'] < 60:
+        if template_data['pipeline1']['percent'] < .60:
             template_data['pipeline1']['percent_color'] = 'red'
-        elif template_data['pipeline1']['percent'] < 70:
+        elif template_data['pipeline1']['percent'] < .70:
             template_data['pipeline1']['percent_color'] = 'orange'
-        elif template_data['pipeline1']['percent'] < 80:
+        elif template_data['pipeline1']['percent'] < .80:
             template_data['pipeline1']['percent_color'] = 'yellow'
-        elif template_data['pipeline1']['percent'] <= 90:
+        elif template_data['pipeline1']['percent'] <= .90:
             template_data['pipeline1']['percent_color'] = 'green'         
         else:
             template_data['pipeline1']['percent_color'] = 'blue'
@@ -74,19 +74,19 @@ def prediction():
         # Second model
         template_data['pipeline2']['prediction'] = str(title_pipeline2.predict([text])[0])
         if template_data['pipeline2']['prediction'] == 'True':
-            template_data['pipeline2']['percent'] = round(title_pipeline2.predict_proba([text])[0][1] * 100, 2)
+            template_data['pipeline2']['percent'] = round(title_pipeline2.predict_proba([text])[0][1], 4)
             template_data['pipeline2']['prediction_color'] = 'green'
         else:
-            template_data['pipeline2']['percent'] = round(title_pipeline2.predict_proba([text])[0][0] * 100, 2)
+            template_data['pipeline2']['percent'] = round(title_pipeline2.predict_proba([text])[0][0], 4)
             template_data['pipeline2']['prediction_color'] = 'red'
 
-        if template_data['pipeline2']['percent'] < 60:
+        if template_data['pipeline2']['percent'] < .60:
             template_data['pipeline2']['percent_color'] = 'red'
-        elif template_data['pipeline2']['percent'] < 70:
+        elif template_data['pipeline2']['percent'] < .70:
             template_data['pipeline2']['percent_color'] = 'orange'
-        elif template_data['pipeline2']['percent'] < 80:
+        elif template_data['pipeline2']['percent'] < .80:
             template_data['pipeline2']['percent_color'] = 'yellow'
-        elif template_data['pipeline2']['percent'] <= 90:
+        elif template_data['pipeline2']['percent'] <= .90:
             template_data['pipeline2']['percent_color'] = 'green'         
         else:
             template_data['pipeline2']['percent_color'] = 'blue'
@@ -121,19 +121,19 @@ def predict_body():
         # First model
         template_data['pipeline1']['prediction'] = str(body_pipeline.predict([text.lower()])[0])
         if template_data['pipeline1']['prediction'] == 'True':
-            template_data['pipeline1']['percent'] = round(body_pipeline.predict_proba([text.lower()])[0][1] * 100, 2)
+            template_data['pipeline1']['percent'] = round(body_pipeline.predict_proba([text.lower()])[0][1], 4)
             template_data['pipeline1']['prediction_color'] = 'green'
         else:
-            template_data['pipeline1']['percent'] = round(body_pipeline.predict_proba([text.lower()])[0][0] * 100, 2)
+            template_data['pipeline1']['percent'] = round(body_pipeline.predict_proba([text.lower()])[0][0], 4)
             template_data['pipeline1']['prediction_color'] = 'red'
 
-        if template_data['pipeline1']['percent'] < 60:
+        if template_data['pipeline1']['percent'] < .60:
             template_data['pipeline1']['percent_color'] = 'red'
-        elif template_data['pipeline1']['percent'] < 70:
+        elif template_data['pipeline1']['percent'] < .70:
             template_data['pipeline1']['percent_color'] = 'orange'
-        elif template_data['pipeline1']['percent'] < 80:
+        elif template_data['pipeline1']['percent'] < .80:
             template_data['pipeline1']['percent_color'] = 'yellow'
-        elif template_data['pipeline1']['percent'] <= 90:
+        elif template_data['pipeline1']['percent'] <= .90:
             template_data['pipeline1']['percent_color'] = 'green'         
         else:
             template_data['pipeline1']['percent_color'] = 'blue'
@@ -142,19 +142,19 @@ def predict_body():
         # Second model
         template_data['pipeline2']['prediction'] = str(body_pipeline2.predict([text])[0])
         if template_data['pipeline2']['prediction'] == 'True':
-            template_data['pipeline2']['percent'] = round(body_pipeline2.predict_proba([text])[0][1] * 100, 2)
+            template_data['pipeline2']['percent'] = round(body_pipeline2.predict_proba([text])[0][1], 4)
             template_data['pipeline2']['prediction_color'] = 'green'
         else:
-            template_data['pipeline2']['percent'] = round(body_pipeline2.predict_proba([text])[0][0] * 100, 2)
+            template_data['pipeline2']['percent'] = round(body_pipeline2.predict_proba([text])[0][0], 4)
             template_data['pipeline2']['prediction_color'] = 'red'
 
-        if template_data['pipeline2']['percent'] < 60:
+        if template_data['pipeline2']['percent'] < .60:
             template_data['pipeline2']['percent_color'] = 'red'
-        elif template_data['pipeline2']['percent'] < 70:
+        elif template_data['pipeline2']['percent'] < .70:
             template_data['pipeline2']['percent_color'] = 'orange'
-        elif template_data['pipeline2']['percent'] < 80:
+        elif template_data['pipeline2']['percent'] < .80:
             template_data['pipeline2']['percent_color'] = 'yellow'
-        elif template_data['pipeline2']['percent'] <= 90:
+        elif template_data['pipeline2']['percent'] <= .90:
             template_data['pipeline2']['percent_color'] = 'green'         
         else:
             template_data['pipeline2']['percent_color'] = 'blue'
