@@ -1,7 +1,6 @@
 from flask import Flask, request, render_template
 import joblib
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
-import gc
 
 # Load model pipeline from disk
 title_pipeline = joblib.load('05_Models/large_title_SVM_pipeline.sav')
