@@ -24,7 +24,8 @@ traitlets
 wcwidth
 Werkzeug
 gunicorn
+transformers
 scikit-learn
 joblib
-transformers
-
+torch
+tensorflow
