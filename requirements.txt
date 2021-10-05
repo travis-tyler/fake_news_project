@@ -18,3 +18,4 @@ gunicorn
 transformers
 joblib
 sklearn
+gc
