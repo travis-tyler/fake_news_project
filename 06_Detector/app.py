@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template
 import joblib
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
+import gc
 
 # Load model pipeline from disk
 title_pipeline = joblib.load('05_Models/large_title_SVM_pipeline.sav')
@@ -172,31 +173,33 @@ def facehug():
     if request.method == 'POST':
         text = request.form['text']
 
+        template_data['text'] = text
+
         # inputs = tokenizer(text, return_tensors='pt')
-        # output = model(**tokenizer(text, return_tensors='pt'))
+        # output = model(**inputs)
 
-        pred_logits = model(**tokenizer(text, return_tensors='pt')).logits.softmax(dim=1).detach().cpu().flatten().numpy().tolist()
-        prob = max(pred_logits)
-        template_data['prob'] = round(prob, 2)
-        pred = pred_logits.index(prob)
+        # pred_logits = output.logits.softmax(dim=1).detach().cpu().flatten().numpy().tolist()
+        # prob = max(pred_logits)
+        # template_data['prob'] = round(prob, 2)
+        # pred = pred_logits.index(prob)
 
-        if pred == 0:
-            template_data['pred'] = 'False'
-            template_data['prediction_color'] = 'Red'
-        else:
-            template_data['pred'] = 'True'
-            template_data['prediction_color'] = 'Green'
+        # if pred == 0:
+        #     template_data['pred'] = 'False'
+        #     template_data['prediction_color'] = 'Red'
+        # else:
+        #     template_data['pred'] = 'True'
+        #     template_data['prediction_color'] = 'Green'
 
-        if template_data['prob'] < .60:
-            template_data['percent_color'] = 'red'
-        elif template_data['prob'] < .70:
-            template_data['percent_color'] = 'orange'
-        elif template_data['prob'] < .80:
-            template_data['percent_color'] = 'yellow'
-        elif template_data['prob'] <= .90:
-            template_data['percent_color'] = 'green'         
-        else:
-            template_data['percent_color'] = 'blue'
+        # if template_data['prob'] < .60:
+        #     template_data['percent_color'] = 'red'
+        # elif template_data['prob'] < .70:
+        #     template_data['percent_color'] = 'orange'
+        # elif template_data['prob'] < .80:
+        #     template_data['percent_color'] = 'yellow'
+        # elif template_data['prob'] <= .90:
+        #     template_data['percent_color'] = 'green'         
+        # else:
+        #     template_data['percent_color'] = 'blue'
 
     return render_template('facehug.html', **template_data)
 
