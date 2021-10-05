@@ -172,10 +172,10 @@ def facehug():
     if request.method == 'POST':
         text = request.form['text']
 
-        inputs = tokenizer(text, return_tensors='pt')
-        output = model(**inputs)
+        # inputs = tokenizer(text, return_tensors='pt')
+        # output = model(**tokenizer(text, return_tensors='pt'))
 
-        pred_logits = output.logits.softmax(dim=1).detach().cpu().flatten().numpy().tolist()
+        pred_logits = model(**tokenizer(text, return_tensors='pt')).logits.softmax(dim=1).detach().cpu().flatten().numpy().tolist()
         prob = max(pred_logits)
         template_data['prob'] = round(prob, 2)
         pred = pred_logits.index(prob)
