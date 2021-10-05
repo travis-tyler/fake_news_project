@@ -9,6 +9,9 @@ title_pipeline2 = joblib.load('05_Models/small_title_SVM_pipeline.sav')
 body_pipeline = joblib.load('05_Models/large_body_SVM_pipeline.sav')
 body_pipeline2 = joblib.load('05_Models/small_body_SVM_pipeline.sav')
 
+# Load pretrained model and tokenizer
+tokenizer = AutoTokenizer.from_pretrained("ghanashyamvtatti/roberta-fake-news")
+model = AutoModelForSequenceClassification.from_pretrained("ghanashyamvtatti/roberta-fake-news")
 
 app = Flask(__name__)
 
@@ -164,8 +167,6 @@ def predict_body():
 
 @app.route('/facehug', methods=['GET', 'POST'])
 def facehug():
-    tokenizer = AutoTokenizer.from_pretrained("ghanashyamvtatti/roberta-fake-news")
-    model = AutoModelForSequenceClassification.from_pretrained("ghanashyamvtatti/roberta-fake-news")
     template_data = {'text':'', 'pred':'', 'prob':'', 'prediction_color':'', 'percent_color':''}
     if request.method == 'POST':
         text = request.form['text']
