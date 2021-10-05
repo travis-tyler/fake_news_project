@@ -25,3 +25,4 @@ gunicorn
 transformers
 joblib
 sklearn
+torch
