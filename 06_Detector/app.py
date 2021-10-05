@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template
-import joblib, torch, tensorflow
+import joblib
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
 # Load model pipeline from disk
@@ -8,8 +8,6 @@ title_pipeline2 = joblib.load('05_Models/small_title_SVM_pipeline.sav')
 
 body_pipeline = joblib.load('05_Models/large_body_SVM_pipeline.sav')
 body_pipeline2 = joblib.load('05_Models/small_body_SVM_pipeline.sav')
-
-
 
 app = Flask(__name__)
 
