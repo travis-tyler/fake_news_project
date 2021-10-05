@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template
-import joblib, gc
+import joblib
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
 # Load model pipeline from disk
@@ -165,15 +165,7 @@ def predict_body():
 def facehug():
     # Load pretrained model and tokenizer
     tokenizer = AutoTokenizer.from_pretrained("ghanashyamvtatti/roberta-fake-news")
-    inputs = tokenizer(text, return_tensors='pt')
-    del tokenizer
-    gc.collect()
     model = AutoModelForSequenceClassification.from_pretrained("ghanashyamvtatti/roberta-fake-news")
-    output = model(**inputs)
-    del model
-    gc.collect()
-
-    pred_logits = output.logits.softmax(dim=1).detach().cpu().flatten().numpy().tolist()
 
     template_data = {'text':'', 'pred':'', 'prob':'', 'prediction_color':'', 'percent_color':''}
 
@@ -181,7 +173,11 @@ def facehug():
         text = request.form['text']
 
         template_data['text'] = text
-        
+
+        inputs = tokenizer(text, return_tensors='pt')
+        output = model(**inputs)
+
+        pred_logits = output.logits.softmax(dim=1).detach().cpu().flatten().numpy().tolist()
         prob = max(pred_logits)
         template_data['prob'] = round(prob, 2)
         pred = pred_logits.index(prob)
