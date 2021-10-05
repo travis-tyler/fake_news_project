@@ -1,8 +1,6 @@
 appnope
-click
 decorator
 Flask
-Flask-SQLAlchemy
 ipython
 ipython-genutils
 itsdangerous
@@ -19,13 +17,10 @@ ptyprocess
 Pygments
 simplegeneric
 six
-SQLAlchemy
+numpy
 traitlets
 wcwidth
 Werkzeug
 gunicorn
 transformers
-scikit-learn
 joblib
-torch
-tensorflow
