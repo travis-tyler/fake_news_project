@@ -14,14 +14,15 @@
 <body>
     
     <div class="header">
-      <h1>Headline prediction</h1>
+      <h1>Facehug prediction</h1>
       <p>A fake headline detector app</p>
     </div>
     
     <div class="navbar">
       <a href="{{ url_for('home') }}">Home</a>
       <a href="{{ url_for('facehug_baseline') }}">Facehug baseline</a>
-      <a href="{{ url_for('prediction') }}" class="active">Headline prediction</a>
+      <a href="{{ url_for('facehug_baseline') }}" class="active">Facehug baseline</a>
+      <a href="{{ url_for('prediction') }}">Headline prediction</a>
       <a href="{{ url_for('predict_body') }}">Body prediction</a>
       <a href="{{ url_for('visualization') }}">Word visualization</a>
       <a href="{{ url_for('analysis') }}">Analysis</a>
@@ -31,59 +32,50 @@
 
     <div class='row'> 
       <div class= "col-3"></div>
-      <h3 class="col-6">Fake headline detector</h3>
+      <h3 class="col-6">Facehugging fake news detector</h3>
     </div>
     <br>
     <div class='row'> 
       <div class= "col-3"></div>
       <p class="col-6">
-        The following two headline classifier models are linear support vector machines with the same parameters. They are trained, however, on two different datasets.
-        Model one is trained on a large 38,000+ record dataset and achieved an accuracy score of 0.947 and an F1 score of 0.945. 
-        The second model was trained using multiple smaller datasets to account for any error and over/under-representation in the large dataset.
-        Model 2 achieved a lower, but perhaps more realistic accuracy score of 0.868 and F1 score of 0.864.
+        The following is a pretrained RoBERTa model to be used as a baseline. Links: 
+        <a href="https://huggingface.co/ghanashyamvtatti/roberta-fake-news?text=this+is+a+fake+news+test%21">Model</a>;
+        <a href="https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset">Dataset</a>
       </p>
     </div>
     <br>
     <div class='row'> 
       <div class= "col-3"></div>
       <form class ="col-6" action="/prediction" method="POST">
-        <textarea name="text" style='width:500px; height: 100px' placeholder="Copy/paste a headline into this field"></textarea>
+        <textarea name="text" style='width:500px; height: 100px' placeholder="Copy/paste a news copy into this field"></textarea>
         <input type="submit" value="Predict!">
       </form>
     </div>
     <br>
     <div class='row'> 
       <div class= "col-3"></div>    
-      <h4 class= "col-2">Headline:</h4>
+      <h4 class= "col-2">Text:</h4>
     </div>
     <div class='row'> 
       <div class= "col-3"></div>   
-      <p class= "col-6">{{ headline }}</p>
+      <p class= "col-6">{{ text }}</p>
     </div>
     <br>
     <div class='row'> 
       <div class= "col-3"></div>   
-      <h4 class= "col-2">Larger-dataset prediction:</h4>
-      <div class= "col-1"></div>   
-      <h4 class= "col-2">Smaller-dataset prediction:</h4>
+      <h4 class= "col-2">Facehugging prediction:</h4>
     </div>
     <div class='row'> 
       <div class= "col-3"></div>   
-      <h4 class= "col-2" style="color: {{ pipeline1.prediction_color }}; text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;">{{ pipeline1.prediction }}</h4>
-      <div class= "col-1"></div>   
-      <h4 class= "col-2" style="color: {{ pipeline2.prediction_color }}; text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;">{{ pipeline2.prediction }}</h4>
+      <h4 class= "col-2" style="color: {{ prediction_color }}; text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;">{{ pred }}</h4>
     </div>
     <div class='row'> 
       <div class= "col-3"></div>   
       <h4 class= "col-2">Probability:</h4>
-      <div class= "col-1"></div>   
-      <h4 class= "col-2">Probability:</h4>
     </div>
     <div class='row'> 
       <div class= "col-3"></div>   
-      <h4 class= "col-2" style="color: {{ pipeline1.percent_color }}; text-shadow: 0 0 2px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;">{{ pipeline1.percent }}</h4>
-      <div class= "col-1"></div>   
-      <h4 class= "col-2" style="color: {{ pipeline2.percent_color }}; text-shadow: 0 0 2px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;">{{ pipeline2.percent }}</h4>
+      <h4 class= "col-2" style="color: {{ percent_color }}; text-shadow: 0 0 2px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;">{{ prob }}</h4>
     </div>
     <br>
   
