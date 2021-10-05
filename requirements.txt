@@ -24,3 +24,4 @@ Werkzeug
 gunicorn
 transformers
 joblib
+sklearn
