@@ -162,7 +162,7 @@ def predict_body():
 
     return render_template('Prediction2.html', **template_data)
 
-@app.route('/facehug_baseline', methods=['GET', 'POST'])
+@app.route('/facehug', methods=['GET', 'POST'])
 def facehug():
     tokenizer = AutoTokenizer.from_pretrained("ghanashyamvtatti/roberta-fake-news")
     model = AutoModelForSequenceClassification.from_pretrained("ghanashyamvtatti/roberta-fake-news")
