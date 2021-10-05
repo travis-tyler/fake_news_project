@@ -174,8 +174,8 @@ def facehug():
         output = model(**inputs)
 
         pred_logits = output.logits.softmax(dim=1).detach().cpu().flatten().numpy().tolist()
-        prob = round(max(pred_logits), 2)
-        template_data['prob'] = prob
+        prob = max(pred_logits)
+        template_data['prob'] = round(prob, 2)
         pred = pred_logits.index(prob)
 
         if pred == 0:
